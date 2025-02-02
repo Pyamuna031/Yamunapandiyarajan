@@ -1,0 +1,21 @@
+import java.util.*;
+public class Eltric {
+    public static void main(String[] args) {
+        Scanner a=new Scanner(System.in);
+        int b=a.nextInt();
+        
+         
+        if(b<=50){
+          double c=b*(0.5);
+            System.out.println(c);
+        }
+        else if(b<=150){
+            double d=(50*(0.5)+(b-50)*0.75);
+            System.out.println(d);
+        }
+        else if(b<=250){
+            double e=(50*(0.5)+100*(0.75)+(b-150)*1);
+            System.out.println(e);
+        }
+        
+    }}
