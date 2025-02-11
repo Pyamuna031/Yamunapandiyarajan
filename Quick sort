@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] a = {20, 45, 36, 40, 59, 55, 34, 26};
+        quickSort(a, 0, a.length - 1);
+        System.out.println(Arrays.toString(a));
+    }
+
+    public static void quickSort(int[] a, int low, int high) {
+        if (low < high) {
+            // Partition the array and get the pivot index
+            int pi = partition(a, low, high);
+
+            // Recursively sort the left and right subarrays
+            quickSort(a, low, pi - 1);
+            quickSort(a, pi + 1, high);
+        }
+    }
+
+    public static int partition(int[] a, int low, int high) {
+        int pivot = a[high]; // Choosing the last element as the pivot
+        int i = low - 1; // Pointer for the smaller element
+
+        for (int j = low; j < high; j++) {
+            if (a[j] <= pivot) {
+                i++;
+                // Swap elements if the current element is smaller than or equal to pivot
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+
+        // Swap the pivot element with the element at index i + 1
+        int temp = a[i + 1];
+        a[i + 1] = a[high];
+        a[high] = temp;
+
+        // Return the partition index
+        return i + 1;
+    }
+}
